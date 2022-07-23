@@ -138,68 +138,16 @@ function mouseClicked() {
     } // changes game state to playing
 
     else if (gameState == "playing") {
-        if (mouseX > 0 && mouseX < 200 && mouseY > 0 && mouseY < 200 ) {
-            if (board[0][0] == " ") {
-                board[0][0] = player;
-                changePlayer();
+        for (let row = 0; row < board.length; row++) {
+            for (let col = 0; col < board[row].length; col++) {
+                if (mouseX > 200 * col && mouseX < 200 * (col + 1) && mouseY > 200 * row && mouseY < 200 * (row + 1)) {
+                    if (board[row][col] == " ") {
+                        board[row][col] = player;
+                        changePlayer();
+                    }
+                }
             }
-        } // top left
-
-        else if (mouseX > 200 && mouseX < 400 && mouseY > 0 && mouseY < 200 ) {
-            if (board[0][1] == " ") {
-                board[0][1] = player;
-                changePlayer();
-            }
-        } // top middle
-
-        else if (mouseX > 400 && mouseX < 600 && mouseY > 0 && mouseY < 200 ) {
-            if (board[0][2] == " ") {
-                board[0][2] = player;
-                changePlayer();
-            }
-        } // top right
-
-        else if (mouseX > 0 && mouseX < 200 && mouseY > 200 && mouseY < 400 ) {
-            if (board[1][0] == " ") {
-                board[1][0] = player;
-                changePlayer();
-            }
-        } // middle left
-
-        else if (mouseX > 200 && mouseX < 400 && mouseY > 200 && mouseY < 400 ) {
-            if (board[1][1] == " ") {
-                board[1][1] = player;
-                changePlayer();
-            }
-        } // middle middle
-
-        else if (mouseX > 400 && mouseX < 600 && mouseY > 200 && mouseY < 400 ) {
-            if (board[1][2] == " ") {
-                board[1][2] = player;
-                changePlayer();
-            }
-        } // middle right
-
-        else if (mouseX > 0 && mouseX < 200 && mouseY > 400 && mouseY < 600 ) {
-            if (board[2][0] == " ") {
-                board[2][0] = player;
-                changePlayer();
-            }
-        } // bottom left
-
-        else if (mouseX > 200 && mouseX < 400 && mouseY > 400 && mouseY < 600 ) {
-            if (board[2][1] == " ") {
-                board[2][1] = player;
-                changePlayer();
-            }
-        } // bottom middle
-
-        else if (mouseX > 400 && mouseX < 600 && mouseY > 400 && mouseY < 600 ) {
-            if (board[2][2] == " ") {
-                board[2][2] = player;
-                changePlayer();
-            }
-        } // bottom right
+        }
     } // updates the board based on the player clicks
 
     else if (gameState == "end") {
